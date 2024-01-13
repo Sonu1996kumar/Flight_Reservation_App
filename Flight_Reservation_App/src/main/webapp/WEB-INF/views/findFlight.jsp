@@ -12,7 +12,7 @@
 <pre>
 FROM: <input type ="text" name = "from"/>
 TO: <input type ="text" name = "to"/>
-DEPARTURE DATE:<input type = "text" name = "departureDate"/>
+DEPARTURE DATE:<input type = "text" name = "departureDate" placeholder="DD-MM-YYYY"/>
 <input type = "Submit" value = "Search"/>
 </pre>
 </form>

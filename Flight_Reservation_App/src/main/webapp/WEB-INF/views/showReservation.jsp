@@ -17,8 +17,8 @@ DEPARTURE DATE :${flight.dateOfDeparture} <br/>
 <form action="confirmReservation" method="post">
 <pre>
 FIRST NAME <input type = "text" name ="firstName"/>
-LAST NAME <input type = "text" name ="lastName"/>
 MIDDLE NAME <input type = "text" name ="middleName"/>
+LAST NAME <input type = "text" name ="lastName"/>
 EMAIL <input type = "text" name ="email"/>
 PHONE <input type = "text" name ="phone"/>
 <input type = "hidden" name = "flightId" value = "${flight.id}"/>
