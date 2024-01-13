@@ -12,6 +12,8 @@ import com.flight.entities.Reservation;
 import com.flight.repositories.FlightRepository;
 import com.flight.repositories.PassengerRepository;
 import com.flight.repositories.ReservationRepository;
+import com.flight.utilities.EmailUtil;
+import com.flight.utilities.PDFgenerator;
 
 @Service
 public class ReservationServiceImpl implements ReservationService {
@@ -21,10 +23,10 @@ public class ReservationServiceImpl implements ReservationService {
 	private FlightRepository flightRepo;
 	@Autowired
 	private ReservationRepository reservationRepo;
-//	@Autowired
-//	private PDFgenerator pdfGenerator;
-//	@Autowired
-//	private EmailUtil emailUtil;
+	@Autowired
+	private PDFgenerator pdfGenerator;
+	@Autowired
+	private EmailUtil emailUtil;
 
 	@Override
 	public Reservation bookFlight(ReservationRequest request) {
@@ -45,8 +47,8 @@ public class ReservationServiceImpl implements ReservationService {
 		reservation.setNumberOfBags(0);
 		String filePath = "C:\\SpringBootPr\\Flight_Reservation_App\\TicketReservation" + reservation.getId()+ ".pdf";
 		reservationRepo.save(reservation);
-		//pdfGenerator.generateItinerary(reservation, filePath);
-		//emailUtil.sendItinerary(passenger.getEmail(), filePath);
+		pdfGenerator.generateItinerary(reservation, filePath);
+		emailUtil.sendItinerary(passenger.getEmail(), filePath);
 		return reservation;
 	}
 }
