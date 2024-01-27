@@ -2,6 +2,7 @@ package com.flight.Service;
 
 import java.util.Optional;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -45,10 +46,17 @@ public class ReservationServiceImpl implements ReservationService {
 		reservation.setPassenger(passenger);
 		reservation.setCheckedIn(false);
 		reservation.setNumberOfBags(0);
-		String filePath = "C:\\SpringBootPr\\Flight_Reservation_App\\TicketReservation" + reservation.getId()+ ".pdf";
+		String filePath = "C:\\SpringBootPr\\Flight_Reservation_App" + reservation.getId()+ ".pdf";
 		reservationRepo.save(reservation);
 		pdfGenerator.generateItinerary(reservation, filePath);
 		emailUtil.sendItinerary(passenger.getEmail(), filePath);
 		return reservation;
+	}
+
+	@Override
+	public  Optional<Reservation> checkInById(long id) {
+		Optional<Reservation> findById = reservationRepo.findById(id);
+		return findById;
+		
 	}
 }

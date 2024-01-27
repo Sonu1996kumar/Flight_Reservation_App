@@ -16,5 +16,13 @@ DEPARTURE DATE:<input type = "text" name = "departureDate" placeholder="DD-MM-YY
 <input type = "Submit" value = "Search"/>
 </pre>
 </form>
+
+<form action="bookingDetails">
+<h2>BOOKING DETAILS</h2>
+<a href="bookingDetails"><input type="Submit" value="Search"/></a>
+
+
+</form>
+
 </body>
 </html>

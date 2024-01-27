@@ -1,6 +1,7 @@
 package com.flight.entities;
 
 import javax.persistence.Entity;
+
 import javax.persistence.OneToOne;
 
 @Entity
