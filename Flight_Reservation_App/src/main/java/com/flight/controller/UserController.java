@@ -13,6 +13,10 @@ import com.flight.repositories.UserRepository;
 
 @Controller
 public class UserController {
+	@RequestMapping("/nav")
+	public String navPage() {
+		return "NaveBar";
+	}
 
 	@RequestMapping("/home")
 	public String homePage() {
